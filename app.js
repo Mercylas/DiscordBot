@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const token = `NDQzODIwMDA3MzgyNzEyMzIw.DdTunQ.uM-_YX24vd4qQrldr31JCVA-QDA`;
 
 //Constants
-const adminList = [`137041823683182592`];
+const adminList = [`137041823683182592`, `140644913372069888`];
 //Local
 var database = require(`./database.js`);
 var generator = require(`./generator.js`);
