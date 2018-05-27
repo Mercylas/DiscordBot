@@ -1,7 +1,7 @@
 const Discord = require(`discord.js`);
 const client = new Discord.Client();
 // The token of your bot - https://discordapp.com/developers/applications/me
-const token = `Token`;
+const token = `NDQzODIwMDA3MzgyNzEyMzIw.DdTunQ.uM-_YX24vd4qQrldr31JCVA-QDA`;
 
 //Constants
 const adminList = [`137041823683182592`];
@@ -16,15 +16,15 @@ var welcoemMessage = false;
 
 //Admin IDs
 var moderatorList = [`137041823683182592`];
-var GAME_ROLES = [`Starcraft`, `Destiny`, `WoW`, `Rocket League`, `Hearthstone`, `Smash4`, `Melee`, `Smash`,`Overwatch`, `CS:GO`, `Smite`, `Fire Emblem`, `Paladins`, `Pokemon`, `Runescape`, `Tabletop`, `PUBG`, `Rainbow Six Siege`, `DotA`, `HOTS`, `League of Legends`, `Fortnite`]
-var MEMBER_COMMANDS = [`!role`, `!unrole`, `!avatar`, `!invite`, '!who'];
-var ADMIN_COMMANDS = [`!cleanmode`,`!channel`, `channel introductions`, '!channel list', `!channel rules`, 'channel update', `!devmode`, `!emotelist`,'!promote', '!deomote', `status`, `!welcomeImage`, `!welcoemMessage`];
+var GAME_ROLES = [`Starcraft`, `Destiny`, `WoW`, `Rocket League`, `Hearthstone`, `Smash4`, `Melee`, `Smash`,`Overwatch`, `CS:GO`, `Smite`, `Fire Emblem`, `Paladins`, `Pokemon`, `Runescape`, `Tabletop`, `PUBG`, `Rainbow Six Siege`, `DotA`, `HOTS`, `League of Legends`, `Fortnite`, `PS4`, `XBOX`, `Switch`]
+var MEMBER_COMMANDS = [`!role`, `!unrole`, `!avatar`, `!invite`, `!who`];
+var ADMIN_COMMANDS = [`!cleanmode`,`!channel`, `channel introductions`, `!channel list`, `!channel rules`, 'channel update', `!devmode`, `!emotelist`,'!promote', '!deomote', `status`, `welcome`, `!welcomeimage`,`!welcomemessage`];
 var MOD_COMMANDS = [`!announcement`];
 var logChannel = ``;
 var channelList = {};
 var introductions = '#introductions';
 var rules = "#welcome";
-var welcomeImage = "https://cdn.discordapp.com/attachments/443848163724623893/443857040683696139/RedditLink.png";
+var welcomeImage = "https://s26.postimg.cc/8x8hnunux/Reddit_Link.png";
 
 //Helpers
 function remove(array, element) {
@@ -214,6 +214,12 @@ client.on(`message`, (message) => {
       message.channel.send(emojiList);
       return;
     }
+    if (command == `welcome`){
+      message.channel.send(" ", {files: [welcomeImage]}).catch(console.error);
+      setTimeout(function(){
+      message.channel.send(`Welcome to the Tespa Carleton Discord Server!\nPlease read the rules in ${rules} and  then introduce yourself in ${introductions}.\nIf you have any questions, do not hesitate to send a direct message to an Executive or Council member!`);}, 1000);
+      return;
+    }
     if (command == `devmode`){
       if(devMode){
         message.channel.send(`Disabling DevMode. Who needs all those nerdy stats anyways.`);
@@ -223,7 +229,7 @@ client.on(`message`, (message) => {
         devMode = true;
       }
       return;
-      }
+    }
     if (command == `cleanmode`){
       if(cleanMode){
         message.channel.send(`Disabling CleanMode. Back to normal.`);
@@ -242,7 +248,7 @@ client.on(`message`, (message) => {
       }
       return;
     }
-    if (command == `welcoemMessage`){
+    if (command == `welcomemessage`){
       if(welcoemMessage){
         message.channel.send(`Disabling Welcome Message!`);
         welcoemMessage = false;
@@ -256,7 +262,7 @@ client.on(`message`, (message) => {
       message.channel.send(`Here are some things I can help you with as an admin: \n${adminCommandList}`);
       return
     }
-    if(command === 'welcomeImage'){
+    if(command === 'welcomeimage'){
       if(!args[0]){
         message.channel.send(`You need arguements for \`${command}\``);
         return
