@@ -362,7 +362,7 @@ client.on(`message`, (message) => {
       message.channel.send(`Yor are no longer a member of: ${args.join(' ') }... \nSorry to see you go` );
       return
     }
-    message.channel.send(`I can't find the role${args.join(' ')}.\nAre you sure that is the name of the role you want to remove?\nUse \`!role <role_name>\` to join a role \nUse \`!rmrole <role_name>\` to leave a role`)
+    message.channel.send(`I can't find the role: ${args.join(' ')}.\nAre you sure that is the name of the role you want to remove?\nUse \`!role <role_name>\` to join a role \nUse \`!rmrole <role_name>\` to leave a role`)
     return
   }
   if(command ==  `help`){
